@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Microsoft Scout Group Policy Administrative Template (ADMX)
+  Deploy to: %systemroot%\PolicyDefinitions\microsoft-scout.admx
+  Language file: %systemroot%\PolicyDefinitions\en-US\microsoft-scout.adml
+
+  Registry key: HKLM\SOFTWARE\Policies\Scout
+  All settings are machine-level (Class="Machine").
+-->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                   revision="1.0"
+                   schemaVersion="1.0"
+                   xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+  <policyNamespaces>
+    <target prefix="microsoftscout" namespace="MicrosoftScout.Policies.Scout" />
+  </policyNamespaces>
+
+  <resources minRequiredRevision="1.0" />
+
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_Windows10" displayName="$(string.SUPPORTED_Windows10)" />
+    </definitions>
+  </supportedOn>
+
+  <categories>
+    <category name="MicrosoftScout" displayName="$(string.Cat_MicrosoftScout)" />
+    <category name="Capabilities" displayName="$(string.Cat_Capabilities)">
+      <parentCategory ref="MicrosoftScout" />
+    </category>
+    <category name="Models" displayName="$(string.Cat_Models)">
+      <parentCategory ref="MicrosoftScout" />
+    </category>
+    <category name="Security" displayName="$(string.Cat_Security)">
+      <parentCategory ref="MicrosoftScout" />
+    </category>
+  </categories>
+
+  <policies>
+
+    <!-- PolicyVersion (DWORD) -->
+    <policy name="PolicyVersion"
+            class="Machine"
+            displayName="$(string.PolicyVersion)"
+            explainText="$(string.PolicyVersion_Help)"
+            presentation="$(presentation.PolicyVersion)"
+            key="SOFTWARE\Policies\Scout">
+      <parentCategory ref="MicrosoftScout" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <elements>
+        <decimal id="PolicyVersion_Value" valueName="PolicyVersion" minValue="1" maxValue="9999" />
+      </elements>
+    </policy>
+
+    <!-- DisabledServers (REG_SZ, comma-separated) -->
+    <policy name="DisabledServers"
+            class="Machine"
+            displayName="$(string.DisabledServers)"
+            explainText="$(string.DisabledServers_Help)"
+            presentation="$(presentation.DisabledServers)"
+            key="SOFTWARE\Policies\Scout">
+      <parentCategory ref="Capabilities" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <elements>
+        <text id="DisabledServers_Value" valueName="DisabledServers" maxLength="1024" />
+      </elements>
+    </policy>
+
+    <!-- DisabledPermissions (REG_SZ, comma-separated) -->
+    <policy name="DisabledPermissions"
+            class="Machine"
+            displayName="$(string.DisabledPermissions)"
+            explainText="$(string.DisabledPermissions_Help)"
+            presentation="$(presentation.DisabledPermissions)"
+            key="SOFTWARE\Policies\Scout">
+      <parentCategory ref="Security" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <elements>
+        <text id="DisabledPermissions_Value" valueName="DisabledPermissions" maxLength="1024" />
+      </elements>
+    </policy>
+
+    <!-- ForcePrompt (DWORD 0/1) -->
+    <policy name="ForcePrompt"
+            class="Machine"
+            displayName="$(string.ForcePrompt)"
+            explainText="$(string.ForcePrompt_Help)"
+            key="SOFTWARE\Policies\Scout"
+            valueName="ForcePrompt">
+      <parentCategory ref="Security" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
+    <!-- DisabledModels (REG_SZ, comma-separated) -->
+    <policy name="DisabledModels"
+            class="Machine"
+            displayName="$(string.DisabledModels)"
+            explainText="$(string.DisabledModels_Help)"
+            presentation="$(presentation.DisabledModels)"
+            key="SOFTWARE\Policies\Scout">
+      <parentCategory ref="Models" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <elements>
+        <text id="DisabledModels_Value" valueName="DisabledModels" maxLength="1024" />
+      </elements>
+    </policy>
+
+    <!-- DisabledProviders (REG_SZ, comma-separated) -->
+    <policy name="DisabledProviders"
+            class="Machine"
+            displayName="$(string.DisabledProviders)"
+            explainText="$(string.DisabledProviders_Help)"
+            presentation="$(presentation.DisabledProviders)"
+            key="SOFTWARE\Policies\Scout">
+      <parentCategory ref="Models" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <elements>
+        <text id="DisabledProviders_Value" valueName="DisabledProviders" maxLength="1024" />
+      </elements>
+    </policy>
+
+    <!-- DisableHeartbeat (DWORD 0/1) -->
+    <policy name="DisableHeartbeat"
+            class="Machine"
+            displayName="$(string.DisableHeartbeat)"
+            explainText="$(string.DisableHeartbeat_Help)"
+            key="SOFTWARE\Policies\Scout"
+            valueName="DisableHeartbeat">
+      <parentCategory ref="Capabilities" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
+    <!-- DisableWorkflows (DWORD 0/1) -->
+    <policy name="DisableWorkflows"
+            class="Machine"
+            displayName="$(string.DisableWorkflows)"
+            explainText="$(string.DisableWorkflows_Help)"
+            key="SOFTWARE\Policies\Scout"
+            valueName="DisableWorkflows">
+      <parentCategory ref="Capabilities" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
+    <!-- RestrictToWorkspace (DWORD 0/1) -->
+    <policy name="RestrictToWorkspace"
+            class="Machine"
+            displayName="$(string.RestrictToWorkspace)"
+            explainText="$(string.RestrictToWorkspace_Help)"
+            key="SOFTWARE\Policies\Scout"
+            valueName="RestrictToWorkspace">
+      <parentCategory ref="Security" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
+    <!-- BrowserEgressBlockedOrigins (REG_SZ, comma-separated)
+         Element-based policy: valueName lives on the child <text> element, NOT on
+         the <policy> tag. Having it on both triggers Intune CSP error 131329. -->
+    <policy name="BrowserEgressBlockedOrigins"
+            class="Machine"
+            displayName="$(string.BrowserEgressBlockedOrigins)"
+            explainText="$(string.BrowserEgressBlockedOrigins_Help)"
+            presentation="$(presentation.BrowserEgressBlockedOrigins)"
+            key="SOFTWARE\Policies\Scout">
+      <parentCategory ref="Security" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <elements>
+        <text id="BrowserEgressBlockedOrigins_Value" valueName="BrowserEgressBlockedOrigins" maxLength="2048" />
+      </elements>
+    </policy>
+
+    <!-- AllowScoutFrontierAccess (DWORD 0/1)
+         Toggle policy: valueName correctly lives on the <policy> tag (this is the
+         non-buggy shape - only element-based policies must omit it here). -->
+    <policy name="AllowScoutFrontierAccess"
+            class="Machine"
+            displayName="$(string.AllowScoutFrontierAccess)"
+            explainText="$(string.AllowScoutFrontierAccess_Help)"
+            key="SOFTWARE\Policies\Scout"
+            valueName="AllowScoutFrontierAccess">
+      <parentCategory ref="Capabilities" />
+      <supportedOn ref="SUPPORTED_Windows10" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
+  </policies>
+
+</policyDefinitions>

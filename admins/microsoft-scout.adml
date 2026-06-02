@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Microsoft Scout Group Policy Language File (ADML) - English (US)
+  Deploy to: %systemroot%\PolicyDefinitions\en-US\microsoft-scout.adml
+-->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                           revision="1.0"
+                           schemaVersion="1.0"
+                           xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+  <displayName>Microsoft Scout AI Desktop Assistant</displayName>
+  <description>Group Policy settings for the Microsoft Scout AI desktop assistant.</description>
+
+  <resources>
+    <stringTable>
+      <!-- Categories -->
+      <string id="Cat_MicrosoftScout">Microsoft Scout</string>
+      <string id="Cat_Capabilities">Capabilities</string>
+      <string id="Cat_Models">AI Models</string>
+      <string id="Cat_Security">Security</string>
+
+      <!-- Supported On -->
+      <string id="SUPPORTED_Windows10">Windows 10 or later</string>
+
+      <!-- PolicyVersion -->
+      <string id="PolicyVersion">Policy version</string>
+      <string id="PolicyVersion_Help">Specifies the policy schema version (integer).
+
+Used for diagnostics and future schema migrations. Does not affect runtime behavior directly.</string>
+
+      <!-- DisabledServers -->
+      <string id="DisabledServers">Disabled MCP servers</string>
+      <string id="DisabledServers_Help">Comma-separated list of MCP server config keys to block.
+
+Example: filesystem,playwright
+
+Valid keys: filesystem, playwright, plus any custom MCP servers configured by the user. When a server appears in this list, all tools from that server are denied.</string>
+
+      <!-- DisabledPermissions -->
+      <string id="DisabledPermissions">Disabled permission kinds</string>
+      <string id="DisabledPermissions_Help">Comma-separated list of permission kinds to unconditionally deny.
+
+Valid values: shell, write, mcp, url, custom-tool
+
+Example: shell,write
+
+When a kind is listed, all tool calls requiring that permission are blocked without prompting the user.</string>
+
+      <!-- ForcePrompt -->
+      <string id="ForcePrompt">Force human approval for all non-read actions</string>
+      <string id="ForcePrompt_Help">When enabled, every tool call that is not a read-only operation requires explicit user approval, regardless of auto-approve settings.
+
+This overrides global and per-server auto-approve preferences.</string>
+
+      <!-- DisabledModels -->
+      <string id="DisabledModels">Disabled AI models</string>
+      <string id="DisabledModels_Help">Comma-separated list of model IDs to block.
+
+Example: gpt-4o,claude-3-5-sonnet
+
+Blocked models are hidden from the model picker and cannot be selected for new sessions. If the user's default model is blocked, the app falls back to the first allowed model.</string>
+
+      <!-- DisabledProviders -->
+      <string id="DisabledProviders">Disabled AI model providers</string>
+      <string id="DisabledProviders_Help">Comma-separated list of inference provider names to block.
+
+Example: anthropic,openai
+
+All models from blocked providers are hidden from the model picker and cannot be used.</string>
+
+      <!-- DisableHeartbeat -->
+      <string id="DisableHeartbeat">Disable Heartbeat</string>
+      <string id="DisableHeartbeat_Help">When enabled, the Heartbeat feature (periodic automated check-in) is completely disabled. The Heartbeat toggle in settings is hidden and the feature cannot be re-enabled by the user.</string>
+
+      <!-- DisableWorkflows -->
+      <string id="DisableWorkflows">Disable Automations</string>
+      <string id="DisableWorkflows_Help">When enabled, automation creation and scheduled execution are disabled. Existing automations will not run, and the Automations panel is hidden from the user.</string>
+
+      <!-- RestrictToWorkspace -->
+      <string id="RestrictToWorkspace">Restrict filesystem access to workspace</string>
+      <string id="RestrictToWorkspace_Help">When enabled, file system and shell access is restricted to the current workspace directory only. The MCP filesystem server will not have access to skill directories, automation resources, or other paths outside the workspace.
+
+Use this to limit the assistant's ability to read or modify files outside the project directory.</string>
+
+      <!-- BrowserEgressBlockedOrigins -->
+      <string id="BrowserEgressBlockedOrigins">Blocked browser egress origins</string>
+      <string id="BrowserEgressBlockedOrigins_Help">Comma-separated list of origins to block outbound from the Playwright browser context.
+
+Example: https://evil.com,https://tracker.example.com
+
+Only well-formed http/https origins are accepted (scheme + host + optional port). Entries with paths, queries, or fragments are silently ignored. When a navigation or request targets a blocked origin, it is denied by the browser context before the request leaves the device.</string>
+
+      <!-- AllowScoutFrontierAccess -->
+      <string id="AllowScoutFrontierAccess">Allow Microsoft Scout Frontier access</string>
+      <string id="AllowScoutFrontierAccess_Help">Controls access to Microsoft Scout in Frontier (pre-release) builds for this tenant.
+
+When enabled, frontier-mode users in this tenant can sign in and use Microsoft Scout normally.
+
+When disabled or not configured, frontier-mode users see a waitlist screen and cannot proceed past sign-in. This setting has no effect on regular release or beta builds - those remain available to all users.
+
+Use this to perform a controlled rollout of new Frontier capabilities by opting tenants in explicitly.</string>
+
+    </stringTable>
+
+    <presentationTable>
+
+      <presentation id="PolicyVersion">
+        <decimalTextBox refId="PolicyVersion_Value" defaultValue="1">Policy version:</decimalTextBox>
+      </presentation>
+
+      <presentation id="DisabledServers">
+        <textBox refId="DisabledServers_Value">
+          <label>Server config keys (comma-separated):</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+
+      <presentation id="DisabledPermissions">
+        <textBox refId="DisabledPermissions_Value">
+          <label>Permission kinds (comma-separated):</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+
+      <presentation id="DisabledModels">
+        <textBox refId="DisabledModels_Value">
+          <label>Model IDs (comma-separated):</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+
+      <presentation id="DisabledProviders">
+        <textBox refId="DisabledProviders_Value">
+          <label>Provider names (comma-separated):</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+
+      <presentation id="BrowserEgressBlockedOrigins">
+        <textBox refId="BrowserEgressBlockedOrigins_Value">
+          <label>Blocked origins (comma-separated):</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+
+    </presentationTable>
+
+  </resources>
+
+</policyDefinitionResources>
