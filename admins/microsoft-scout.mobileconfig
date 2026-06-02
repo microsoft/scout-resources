@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Microsoft Scout - macOS Tenant Policy Profile
+  Microsoft Scout — macOS Tenant Policy Profile
 
-  Upload this file to Intune (Devices > macOS > Configuration > Custom)
-  or Jamf (Configuration Profiles > Custom Settings) to enforce tenant
+  Upload this file to Intune (Devices → macOS → Configuration → Custom)
+  or Jamf (Configuration Profiles → Custom Settings) to enforce tenant
   admin controls on managed Macs.
 
   Deployment channel: Device channel
   Domain: com.microsoft.clawpilot
 
   To customize: enable/disable individual keys below.  Remove any <key>
-  you don't need - absent keys are not enforced (same as "Not configured"
+  you don't need — absent keys are not enforced (same as "Not configured"
   in Windows GPO).
 
   Available keys and types:
@@ -43,7 +43,7 @@
             <key>PayloadDisplayName</key>
             <string>Microsoft Scout Tenant Policy</string>
 
-            <!-- == Policy settings == -->
+            <!-- ── Policy settings ── -->
 
             <key>PolicyVersion</key>
             <integer>1</integer>

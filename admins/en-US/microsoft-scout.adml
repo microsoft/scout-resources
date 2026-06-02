@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Microsoft Scout Group Policy Language File (ADML) - English (US)
+  Microsoft Scout Group Policy Language File (ADML) — English (US)
   Deploy to: %systemroot%\PolicyDefinitions\en-US\microsoft-scout.adml
 -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
