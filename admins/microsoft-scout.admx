@@ -82,7 +82,7 @@
       </elements>
     </policy>
 
-    <!-- ForcePrompt (DWORD 0/1) -->
+    <!-- ForcePrompt (REG_SZ "1"/"0") -->
     <policy name="ForcePrompt"
             class="Machine"
             displayName="$(string.ForcePrompt)"
@@ -91,8 +91,8 @@
             valueName="ForcePrompt">
       <parentCategory ref="Security" />
       <supportedOn ref="SUPPORTED_Windows10" />
-      <enabledValue><decimal value="1" /></enabledValue>
-      <disabledValue><decimal value="0" /></disabledValue>
+      <enabledValue><string value="1" /></enabledValue>
+      <disabledValue><string value="0" /></disabledValue>
     </policy>
 
     <!-- DisabledModels (REG_SZ, comma-separated) -->
@@ -123,7 +123,7 @@
       </elements>
     </policy>
 
-    <!-- DisableHeartbeat (DWORD 0/1) -->
+    <!-- DisableHeartbeat (REG_SZ "1"/"0") -->
     <policy name="DisableHeartbeat"
             class="Machine"
             displayName="$(string.DisableHeartbeat)"
@@ -132,11 +132,11 @@
             valueName="DisableHeartbeat">
       <parentCategory ref="Capabilities" />
       <supportedOn ref="SUPPORTED_Windows10" />
-      <enabledValue><decimal value="1" /></enabledValue>
-      <disabledValue><decimal value="0" /></disabledValue>
+      <enabledValue><string value="1" /></enabledValue>
+      <disabledValue><string value="0" /></disabledValue>
     </policy>
 
-    <!-- DisableWorkflows (DWORD 0/1) -->
+    <!-- DisableWorkflows (REG_SZ "1"/"0") -->
     <policy name="DisableWorkflows"
             class="Machine"
             displayName="$(string.DisableWorkflows)"
@@ -145,11 +145,11 @@
             valueName="DisableWorkflows">
       <parentCategory ref="Capabilities" />
       <supportedOn ref="SUPPORTED_Windows10" />
-      <enabledValue><decimal value="1" /></enabledValue>
-      <disabledValue><decimal value="0" /></disabledValue>
+      <enabledValue><string value="1" /></enabledValue>
+      <disabledValue><string value="0" /></disabledValue>
     </policy>
 
-    <!-- RestrictToWorkspace (DWORD 0/1) -->
+    <!-- RestrictToWorkspace (REG_SZ "1"/"0") -->
     <policy name="RestrictToWorkspace"
             class="Machine"
             displayName="$(string.RestrictToWorkspace)"
@@ -158,8 +158,8 @@
             valueName="RestrictToWorkspace">
       <parentCategory ref="Security" />
       <supportedOn ref="SUPPORTED_Windows10" />
-      <enabledValue><decimal value="1" /></enabledValue>
-      <disabledValue><decimal value="0" /></disabledValue>
+      <enabledValue><string value="1" /></enabledValue>
+      <disabledValue><string value="0" /></disabledValue>
     </policy>
 
     <!-- BrowserEgressBlockedOrigins (REG_SZ, comma-separated)
@@ -178,9 +178,9 @@
       </elements>
     </policy>
 
-    <!-- AllowScoutFrontierAccess (DWORD 0/1)
-         Toggle policy: valueName correctly lives on the <policy> tag (this is the
-         non-buggy shape - only element-based policies must omit it here). -->
+    <!-- AllowScoutFrontierAccess (REG_SZ "1"/"0")
+         Toggle policy: valueName lives on the <policy> tag.
+         Element-based policies put it on the child element instead. -->
     <policy name="AllowScoutFrontierAccess"
             class="Machine"
             displayName="$(string.AllowScoutFrontierAccess)"
@@ -189,8 +189,8 @@
             valueName="AllowScoutFrontierAccess">
       <parentCategory ref="Capabilities" />
       <supportedOn ref="SUPPORTED_Windows10" />
-      <enabledValue><decimal value="1" /></enabledValue>
-      <disabledValue><decimal value="0" /></disabledValue>
+      <enabledValue><string value="1" /></enabledValue>
+      <disabledValue><string value="0" /></disabledValue>
     </policy>
 
   </policies>
